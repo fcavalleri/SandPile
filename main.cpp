@@ -13,14 +13,6 @@ bool instable(int* M){
     return false;
 }
 
-/*std::vector<int> overloaded(int* M){
-    std::vector<int> Index;
-    for (int i=0; i<L*L; ++i){
-        if (M[i]>3) Index.push_back(i);
-    }
-    return Index;
-}*/
-
 int overloaded(int* M){
     for (int i=0; i<L*L; ++i){
         if (M[i]>3) return i;
