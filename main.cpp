@@ -3,8 +3,8 @@
 #include <cmath>
 #include <fstream>
 
-#define L 1000
-#define T 10000
+static constexpr size_t L = 1000;
+static constexpr size_t T = 10000;
 
 bool instable(int* M){
     for (int i=0; i<L*L; ++i){
