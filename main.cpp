@@ -11,7 +11,7 @@ static constexpr size_t T = 10000000;
 
 int main() {
 
-  mtx::matrix<uint32_t, L, L> M;
+  mtx::matrix<uint8_t, L, L> M; // keeps the content of every cell
   mtx::udcs<L * L, uint32_t> overloaded; // keeps the set of cell where content > 3
 
   std::fill(M.flat().begin(), M.flat().end(), 0);
