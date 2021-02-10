@@ -8,7 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-static constexpr size_t L = 200;
+static constexpr size_t L = 512;
 static constexpr size_t T = 1000000;
 
 void display_grid(const mtx::matrix<uint8_t, L, L> &M, const std::array<sf::Color, 4> &color_map) {
@@ -19,6 +19,15 @@ void display_grid(const mtx::matrix<uint8_t, L, L> &M, const std::array<sf::Colo
   for (int y = 0; y < L; ++y)
     for (int x = 0; x < L; ++x)
       image.setPixel(x, y, color_map[M[y][x]]);
+  //save to file
+  {
+    std::string filename("output_L");
+    filename.append(std::to_string(L)).append("_T")
+        .append(std::to_string(T)).append(".png");
+
+    image.saveToFile(filename);
+    fprintf(stderr, "   saved in image: %s\n", filename.c_str());
+  }
   sf::Sprite sprite;
   sf::Texture texture;
   texture.loadFromImage(image);
